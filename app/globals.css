@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@import "../styles/fonts.css";
+
+@theme {
+  --font-sans: "Bavan", "Vazirmatn", system-ui, sans-serif;
+
+  --color-brand-50: #eefcf6;
+  --color-brand-100: #d5f7e7;
+  --color-brand-200: #aeeed2;
+  --color-brand-300: #78e0b7;
+  --color-brand-400: #3fc998;
+  --color-brand-500: #18ac7c;
+  --color-brand-600: #0d8b64;
+  --color-brand-700: #0c6f53;
+  --color-brand-800: #0d5844;
+  --color-brand-900: #0c4939;
+
+  --color-rise-500: #1fa25a;
+  --color-rise-600: #17843c;
+  --color-fall-500: #e5484d;
+  --color-fall-600: #c9282e;
+
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef2;
+  --color-ink-200: #d8dce3;
+  --color-ink-300: #b6bcc7;
+  --color-ink-400: #8b93a3;
+  --color-ink-500: #6b7383;
+  --color-ink-600: #545b6b;
+  --color-ink-700: #3d4351;
+  --color-ink-800: #262a35;
+  --color-ink-900: #14161c;
+  --color-ink-950: #0b0c10;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ink-950);
+  color: var(--color-ink-100);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  border-color: var(--color-ink-800);
+}
+
+::selection {
+  background-color: var(--color-brand-500);
+  color: var(--color-ink-950);
+}
+
+/* اسکرول‌بار سفارشی و سبک برای دسکتاپ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-ink-700);
+  border-radius: 9999px;
+}
+
+.num-fa {
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

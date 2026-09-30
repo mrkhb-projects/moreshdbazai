@@ -1,0 +1,52 @@
+name: Deploy to Liara
+
+# با هر Push روی شاخه main، پروژه تست، Build و در نهایت روی سرویس Next.js
+# لیارا (لوکیشن ایران) مستقر می‌شود.
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    name: Build, Lint و Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout کد
+        uses: actions/checkout@v4
+
+      - name: نصب Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: نصب وابستگی‌ها
+        run: npm ci
+
+      - name: اجرای Lint
+        run: npm run lint
+
+      - name: اجرای Build
+        run: npm run build
+
+      - name: نصب Liara CLI
+        run: npm install -g @liara/cli
+
+      - name: Deploy روی Liara
+        env:
+          LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
+          APP_NAME: ${{ vars.LIARA_APP_NAME || 'moreshd-bazari' }}
+        run: |
+          if [ -z "$LIARA_TOKEN" ]; then
+            echo "::error::سکرت LIARA_API_TOKEN تنظیم نشده است. آن را در تنظیمات ریپازیتوری (Settings > Secrets and variables > Actions) اضافه کنید."
+            exit 1
+          fi
+          liara deploy \
+            --app="$APP_NAME" \
+            --api-token="$LIARA_TOKEN" \
+            --platform=next \
+            --port=3000 \
+            --no-app-logs

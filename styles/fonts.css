@@ -1,0 +1,88 @@
+/* =============================================================================
+ * فونت اختصاصی «باوان» (Bavan)
+ * =============================================================================
+ * طبق درخواست کارفرما، فونت رسمی پروژه «مرشد بازاری» باوان است. از آنجا که
+ * فایل فونت باوان در یک Google Drive شخصی قرار دارد و در محیط ساخت این
+ * پروژه قابل دانلود مستقیم نبود، فعلاً به‌صورت موقت از فونت آزاد و متن‌باز
+ * «وزیرمتن» (Vazirmatn — مجوز SIL OFL 1.1، فایل مجوز در همین پوشه کنار
+ * فونت‌ها قرار دارد) با همان نام خانوادهٔ فونت «Bavan» استفاده می‌شود تا
+ * ظاهر و ریتم تایپوگرافی فارسی از همین امروز صحیح باشد.
+ *
+ * برای فعال‌سازی فونت واقعی باوان (بدون نیاز به تغییر کد در جای دیگر):
+ *   ۱. فایل‌های وب‌فونت باوان (فرمت woff2) را در مسیر زیر قرار دهید:
+ *        public/fonts/bavan/Bavan-Regular.woff2
+ *        public/fonts/bavan/Bavan-Medium.woff2
+ *        public/fonts/bavan/Bavan-SemiBold.woff2
+ *        public/fonts/bavan/Bavan-Bold.woff2
+ *   ۲. بلاک «فونت باوان (نسخه نهایی)» در پایین این فایل را از حالت کامنت
+ *      خارج کنید و بلاک «جایگزین موقت» را حذف یا کامنت کنید.
+ * از آنجا که family-name همیشه 'Bavan' است، هیچ کامپوننت یا کلاس Tailwind
+ * دیگری نیاز به تغییر ندارد.
+ * ========================================================================= */
+
+/* ---- جایگزین موقت (وزیرمتن) ---- */
+@font-face {
+  font-family: "Bavan";
+  src: url("/fonts/vazirmatn/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bavan";
+  src: url("/fonts/vazirmatn/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bavan";
+  src: url("/fonts/vazirmatn/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bavan";
+  src: url("/fonts/vazirmatn/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- فونت باوان (نسخهٔ نهایی) ----
+@font-face {
+  font-family: "Bavan";
+  src: url("/fonts/bavan/Bavan-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bavan";
+  src: url("/fonts/bavan/Bavan-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bavan";
+  src: url("/fonts/bavan/Bavan-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bavan";
+  src: url("/fonts/bavan/Bavan-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
