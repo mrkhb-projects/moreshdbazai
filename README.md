@@ -54,7 +54,7 @@ types/                  # تایپ‌های TypeScript مشترک
 prisma/                 # schema.prisma (اسکلت آماده برای توسعه‌های آینده)
 public/                 # فایل‌های استاتیک، فونت‌ها، آیکون‌ها
 styles/                 # fonts.css (تعریف فونت Bavan)
-.github/workflows/      # GitHub Actions برای Deploy خودکار به Liara
+.github/workflow-templates/deploy.yml.txt  # قالب GitHub Actions (نحوه فعال‌سازی در ادامه)
 ```
 
 ## نصب محلی
@@ -210,8 +210,32 @@ liara deploy --platform=next --port=3000 --app=<شناسه-برنامه-شما>
 
 ## Deploy خودکار از GitHub
 
-فایل [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) با هر
-Push روی شاخه `main`، مراحل زیر را به‌صورت خودکار انجام می‌دهد:
+> ⚠️ **نکته مهم درباره این فایل:** برنامه‌ی GitHub متصل به این محیط (Arena)
+> دسترسی `workflows` ندارد، بنابراین نمی‌تواند مستقیماً فایلی در مسیر
+> `.github/workflows/` روی گیت‌هاب Push کند. به همین دلیل محتوای این
+> Workflow در مسیر
+> [`.github/workflow-templates/deploy.yml.txt`](./.github/workflow-templates/deploy.yml.txt)
+> ذخیره و Push شده است (نسخه واقعی و اجراشدنی آن هم داخل همین پروژه، در
+> مسیر `.github/workflows/deploy.yml` موجود است، فقط روی گیت‌هاب Push
+> نشده). برای فعال‌سازی آن یکی از دو راه زیر را انجام دهید:
+>
+> **راه ۱ (ساده‌تر):** در گیت‌هاب ریپازیتوری، گزینه «Add file → Create new
+> file» را بزنید، مسیر را `.github/workflows/deploy.yml` بگذارید و محتوای
+> فایل `.github/workflow-templates/deploy.yml.txt` را در آن Paste و Commit
+> کنید.
+>
+> **راه ۲:** به‌صورت محلی این دستورها را اجرا کنید:
+> ```bash
+> git pull origin arena/01a0f3fe-moreshdbazai
+> mkdir -p .github/workflows
+> cp .github/workflow-templates/deploy.yml.txt .github/workflows/deploy.yml
+> git add .github/workflows/deploy.yml
+> git commit -m "ci: add Liara deploy workflow"
+> git push origin main   # یا شاخه‌ای که برای Production استفاده می‌کنید
+> ```
+
+فایل `deploy.yml` با هر Push روی شاخه `main`، مراحل زیر را به‌صورت خودکار
+انجام می‌دهد:
 
 1. Checkout کد
 2. نصب Node.js

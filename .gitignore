@@ -46,3 +46,10 @@ next-env.d.ts
 
 # liara
 .liara
+
+# این فایل به‌صورت محلی برای پیش‌نمایش نگه داشته شده اما از مسیر
+# .github/workflow-templates/deploy.yml.txt کپی و توسط GitHub App این محیط
+# قابل Push نیست (نیاز به دسترسی «workflows» دارد که این App ندارد).
+# طبق README، آن را دستی در گیت‌هاب در مسیر .github/workflows/deploy.yml
+# ایجاد کنید.
+/.github/workflows/deploy.yml
