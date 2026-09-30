@@ -20,7 +20,7 @@ export function DataSourceNote({ source, updatedAt }: { source: "live" | "mock";
       {source === "live" ? (
         <span>داده زنده از tgju.org</span>
       ) : (
-        <span>داده نمونه (منبع زنده موقتاً در دسترس نیست)</span>
+        <span>داده نمونه (Demo) — این نسخه بدون اتصال به سرویس خارجی اجرا می‌شود</span>
       )}
       <span className="num-fa text-ink-500">· آخرین به‌روزرسانی: {formatDateFa(updatedAt)}</span>
     </div>

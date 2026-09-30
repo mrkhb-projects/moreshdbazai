@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PriceCard } from "@/components/prices/PriceCard";
 import { DataSourceNote } from "@/components/prices/DataSourceNote";
 import { ButtonLink } from "@/components/ui/Button";
-import { getMarketSnapshot } from "@/lib/tgju";
+import { getMarketSnapshot } from "@/lib/market-data";
 
 export const revalidate = 60;
 

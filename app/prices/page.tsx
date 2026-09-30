@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PriceTable } from "@/components/prices/PriceTable";
 import { DataSourceNote } from "@/components/prices/DataSourceNote";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { getMarketSnapshot } from "@/lib/tgju";
+import { getMarketSnapshot } from "@/lib/market-data";
 
 export const metadata: Metadata = {
   title: "قیمت لحظه‌ای ارز، طلا و سکه",
@@ -21,7 +21,7 @@ export default async function PricesPage() {
       <SectionHeading
         eyebrow="بازار زنده"
         title="قیمت لحظه‌ای ارز، طلا و سکه"
-        description="اطلاعات این صفحه از سرویس عمومی tgju.org دریافت و هر دقیقه به‌روزرسانی می‌شود."
+        description="این نسخه نمایشی (Demo) است و از داده نمونه استفاده می‌کند؛ در نسخه متصل به سرویس زنده، اطلاعات از tgju.org هر دقیقه به‌روزرسانی می‌شود."
       />
 
       <DataSourceNote source={snapshot.source} updatedAt={snapshot.updatedAt} />

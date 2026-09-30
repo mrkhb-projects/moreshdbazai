@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getMarketSnapshot } from "@/lib/tgju";
+import { getMarketSnapshot } from "@/lib/market-data";
 
 export const dynamic = "force-dynamic";
 

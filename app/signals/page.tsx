@@ -5,7 +5,7 @@ import { SignalCard } from "@/components/prices/SignalCard";
 import { DataSourceNote } from "@/components/prices/DataSourceNote";
 import { DisclaimerBanner } from "@/components/home/DisclaimerBanner";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { getMarketSnapshot } from "@/lib/tgju";
+import { getMarketSnapshot } from "@/lib/market-data";
 
 export const metadata: Metadata = {
   title: "سیگنال خرید و فروش بازار",

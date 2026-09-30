@@ -41,8 +41,9 @@ export function Footer() {
         <div className="rounded-xl border border-ink-800 bg-ink-900/50 p-4 text-xs leading-6 text-ink-500">
           <strong className="text-ink-300">سلب مسئولیت: </strong>
           محتوای «{SITE_NAME}» صرفاً جنبه اطلاع‌رسانی و آموزشی دارد و توصیه مالی رسمی محسوب
-          نمی‌شود. قیمت‌ها از سرویس عمومی tgju.org دریافت می‌شوند و ممکن است با قیمت لحظه‌ای
-          بازار اختلاف داشته باشند. مسئولیت هرگونه تصمیم خرید و فروش بر عهده کاربر است.
+          نمی‌شود. این نسخه از داده نمونه (Demo) استفاده می‌کند؛ در نسخه متصل به سرویس زنده،
+          قیمت‌ها از سرویس عمومی tgju.org دریافت می‌شوند و ممکن است با قیمت لحظه‌ای بازار
+          اختلاف داشته باشند. مسئولیت هرگونه تصمیم خرید و فروش بر عهده کاربر است.
         </div>
 
         <div className="flex flex-col items-center justify-between gap-2 border-t border-ink-800 pt-6 text-xs text-ink-500 sm:flex-row">
