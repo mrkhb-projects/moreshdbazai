@@ -39,6 +39,8 @@ interface LocalPriceEntry {
   price: number;
   high: number;
   low: number;
+  weekHigh: number;
+  weekLow: number;
   changeAmount: number;
   changePercent: number;
   direction: PriceDirection;
@@ -126,6 +128,23 @@ async function fetchRawTgjuData(): Promise<TgjuRawResponse | null> {
   }
 }
 
+// سرویس عمومی ajax.json فقط بازه بالا/پایین «روزانه» می‌دهد، نه هفتگی. برای
+// این‌که محاسبه سیگنال (که به بازه هفتگی نیاز دارد) در حالت Live هم کار کند،
+// بازه هفتگی را با کمی حاشیه اطراف بازه روزانه تخمین می‌زنیم. این یک
+// تقریب ساده است، نه داده واقعی هفتگی.
+const WEEK_RANGE_MARGIN = 0.015; // ۱.۵٪ حاشیه اطراف بازه روزانه
+
+function estimateWeekRange(dailyLow: number, dailyHigh: number, price: number) {
+  if (dailyHigh <= 0 || dailyLow <= 0 || dailyHigh < dailyLow) {
+    // داده روزانه معتبر نیست؛ یک بازه خیلی محافظه‌کارانه دور قیمت فعلی می‌سازیم
+    return { weekLow: price * 0.97, weekHigh: price * 1.03 };
+  }
+  return {
+    weekLow: dailyLow * (1 - WEEK_RANGE_MARGIN),
+    weekHigh: dailyHigh * (1 + WEEK_RANGE_MARGIN),
+  };
+}
+
 function mapToMarketPrices(raw: TgjuRawResponse): MarketPrice[] {
   const prices: MarketPrice[] = [];
 
@@ -138,14 +157,21 @@ function mapToMarketPrices(raw: TgjuRawResponse): MarketPrice[] {
 
     const convert = symbol.isRial ? rialToToman : (v: number) => v;
 
+    const price = convert(rawPrice);
+    const high = convert(toNumber(item.h));
+    const low = convert(toNumber(item.l));
+    const { weekLow, weekHigh } = estimateWeekRange(low, high, price);
+
     prices.push({
       key: symbol.key,
       title: symbol.title,
       category: symbol.category,
       unit: symbol.unit,
-      price: convert(rawPrice),
-      high: convert(toNumber(item.h)),
-      low: convert(toNumber(item.l)),
+      price,
+      high,
+      low,
+      weekHigh,
+      weekLow,
       changeAmount: convert(toNumber(item.d)),
       changePercent: item.dp ?? 0,
       direction: toDirection(item.dt),

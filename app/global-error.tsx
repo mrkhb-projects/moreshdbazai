@@ -23,22 +23,22 @@ export default function GlobalError({
           alignItems: "center",
           justifyContent: "center",
           gap: "1rem",
-          backgroundColor: "#0b0c10",
-          color: "#eceef2",
+          backgroundColor: "#f9fafb",
+          color: "#12151b",
           fontFamily: "system-ui, sans-serif",
           textAlign: "center",
           padding: "1.5rem",
         }}
       >
         <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>خطای غیرمنتظره</h1>
-        <p style={{ maxWidth: 420, color: "#8b93a3", fontSize: "0.9rem" }}>
+        <p style={{ maxWidth: 420, color: "#5c6270", fontSize: "0.9rem" }}>
           متاسفانه برنامه با یک خطای جدی مواجه شد. لطفاً صفحه را دوباره بارگذاری کنید.
         </p>
         <button
           onClick={reset}
           style={{
             backgroundColor: "#18ac7c",
-            color: "#0b0c10",
+            color: "#05201a",
             border: "none",
             borderRadius: "0.75rem",
             padding: "0.6rem 1.5rem",

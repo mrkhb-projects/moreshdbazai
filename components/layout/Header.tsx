@@ -5,12 +5,14 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { SITE_NAME } from "@/lib/constants";
 
 const NAV_LINKS = [
   { href: "/", label: "خانه" },
   { href: "/prices", label: "قیمت‌های لحظه‌ای" },
   { href: "/signals", label: "سیگنال بازار" },
+  { href: "/analysis", label: "تحلیل بازار" },
   { href: "/about", label: "درباره ما" },
   { href: "/contact", label: "تماس با ما" },
 ];
@@ -23,7 +25,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-ink-800 bg-ink-950/85 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-brand-500 text-lg font-bold text-ink-950">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-brand-500 text-lg font-bold text-onbrand">
             م
           </span>
           <span className="text-base font-bold text-ink-50">{SITE_NAME}</span>
@@ -47,23 +49,27 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <ButtonLink href="/login" variant="secondary">
             ورود / ثبت‌نام
           </ButtonLink>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="flex size-10 items-center justify-center rounded-lg border border-ink-800 text-ink-200 md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label="باز و بسته کردن منو"
-        >
-          <span className="sr-only">منو</span>
-          {open ? "✕" : "☰"}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="flex size-10 items-center justify-center rounded-lg border border-ink-800 text-ink-200"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label="باز و بسته کردن منو"
+          >
+            <span className="sr-only">منو</span>
+            {open ? "✕" : "☰"}
+          </button>
+        </div>
       </Container>
 
       {open ? (

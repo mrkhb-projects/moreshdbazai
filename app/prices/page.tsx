@@ -7,8 +7,9 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { getMarketSnapshot } from "@/lib/market-data";
 
 export const metadata: Metadata = {
-  title: "قیمت لحظه‌ای ارز، طلا و سکه",
-  description: "قیمت لحظه‌ای دلار، یورو، طلا و سکه در بازار ایران، به‌همراه بیشترین و کمترین قیمت روز.",
+  title: "قیمت لحظه‌ای ارز، طلا، سکه، رمزارز، بورس و کالا",
+  description:
+    "قیمت لحظه‌ای دلار، یورو، طلا، سکه، ارز دیجیتال، شاخص بورس و کالاهای اساسی، به‌همراه بیشترین و کمترین قیمت روز.",
 };
 
 export const revalidate = 60;
@@ -20,8 +21,8 @@ export default async function PricesPage() {
     <Container className="flex flex-col gap-8 py-12">
       <SectionHeading
         eyebrow="بازار زنده"
-        title="قیمت لحظه‌ای ارز، طلا و سکه"
-        description="این نسخه نمایشی (Demo) است و از داده نمونه استفاده می‌کند؛ در نسخه متصل به سرویس زنده، اطلاعات از tgju.org هر دقیقه به‌روزرسانی می‌شود."
+        title="قیمت لحظه‌ای ارز، طلا، سکه، رمزارز، بورس و کالا"
+        description="این نسخه نمایشی (Demo) است و از داده نمونه استفاده می‌کند؛ در نسخه متصل به سرویس زنده، اطلاعات ارز و طلا/سکه از tgju.org هر دقیقه به‌روزرسانی می‌شود."
       />
 
       <DataSourceNote source={snapshot.source} updatedAt={snapshot.updatedAt} />

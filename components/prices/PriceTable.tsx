@@ -4,16 +4,17 @@ import { useMemo, useState } from "react";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PriceChangeTag } from "@/components/prices/PriceChangeTag";
 import { SignalBadge } from "@/components/prices/SignalBadge";
-import { formatNumberFa, formatTimeFa, formatToman } from "@/lib/format";
+import { formatPriceValue, formatRangeNumber, formatTimeFa } from "@/lib/format";
 import { buildSignal } from "@/lib/signals";
 import { CATEGORY_LABELS } from "@/lib/constants";
 import type { MarketCategory, MarketPrice } from "@/types/price";
 
 const FILTERS: Array<{ id: MarketCategory | "all"; label: string }> = [
   { id: "all", label: "همه" },
-  { id: "currency", label: CATEGORY_LABELS.currency },
-  { id: "gold", label: CATEGORY_LABELS.gold },
-  { id: "coin", label: CATEGORY_LABELS.coin },
+  ...(Object.keys(CATEGORY_LABELS) as MarketCategory[]).map((category) => ({
+    id: category,
+    label: CATEGORY_LABELS[category],
+  })),
 ];
 
 export function PriceTable({ prices }: { prices: MarketPrice[] }) {
@@ -40,7 +41,7 @@ export function PriceTable({ prices }: { prices: MarketPrice[] }) {
               onClick={() => setCategory(filter.id)}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
                 category === filter.id
-                  ? "bg-brand-500 text-ink-950"
+                  ? "bg-brand-500 text-onbrand"
                   : "bg-ink-800 text-ink-300 hover:bg-ink-700"
               }`}
             >
@@ -65,11 +66,14 @@ export function PriceTable({ prices }: { prices: MarketPrice[] }) {
         />
       ) : (
         <div className="overflow-x-auto rounded-2xl border border-ink-800">
-          <table className="w-full min-w-[640px] text-sm">
+          <table className="w-full min-w-[720px] text-sm">
             <thead>
               <tr className="border-b border-ink-800 bg-ink-900/60 text-ink-400">
                 <th scope="col" className="px-4 py-3 text-start font-medium">
                   نماد
+                </th>
+                <th scope="col" className="px-4 py-3 text-start font-medium">
+                  دسته
                 </th>
                 <th scope="col" className="px-4 py-3 text-start font-medium">
                   قیمت
@@ -78,7 +82,7 @@ export function PriceTable({ prices }: { prices: MarketPrice[] }) {
                   تغییر
                 </th>
                 <th scope="col" className="px-4 py-3 text-start font-medium">
-                  کمترین / بیشترین
+                  کمترین / بیشترین روز
                 </th>
                 <th scope="col" className="px-4 py-3 text-start font-medium">
                   وضعیت
@@ -94,14 +98,13 @@ export function PriceTable({ prices }: { prices: MarketPrice[] }) {
                 return (
                   <tr key={price.key} className="border-b border-ink-800/60 last:border-0 hover:bg-ink-900/40">
                     <td className="px-4 py-3 font-medium text-ink-100">{price.title}</td>
-                    <td className="num-fa px-4 py-3 text-ink-50">
-                      {price.unit === "toman" ? formatToman(price.price) : `${formatNumberFa(price.price)} دلار`}
-                    </td>
+                    <td className="px-4 py-3 text-ink-400">{CATEGORY_LABELS[price.category]}</td>
+                    <td className="num-fa px-4 py-3 text-ink-50">{formatPriceValue(price)}</td>
                     <td className="px-4 py-3">
                       <PriceChangeTag direction={price.direction} changePercent={price.changePercent} />
                     </td>
                     <td className="num-fa px-4 py-3 text-ink-500">
-                      {formatNumberFa(price.low)} — {formatNumberFa(price.high)}
+                      {formatRangeNumber(price.low, price.unit)} — {formatRangeNumber(price.high, price.unit)}
                     </td>
                     <td className="px-4 py-3">
                       <SignalBadge action={signal.action} />

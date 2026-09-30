@@ -1,5 +1,5 @@
 {
-  "note": "داده نمونه (Demo) — برای اجرای پروژه بدون دیتابیس و بدون سرویس خارجی. مقادیر بر اساس آخرین رصد واقعی از tgju.org ثبت شده‌اند تا نمونه‌ای معتبر و نزدیک به واقعیت باشد؛ اما به‌روز نگه داشته نمی‌شوند.",
+  "note": "داده نمونه (Demo) — برای اجرای پروژه بدون دیتابیس و بدون سرویس خارجی. مقادیر بر اساس نزدیک‌ترین رصد واقعی از tgju.org و بازارهای جهانی (برای رمزارز، بورس و کالا) ثبت شده‌اند تا نمونه‌ای معتبر و نزدیک به واقعیت باشد؛ اما به‌روز نگه داشته نمی‌شوند. فیلدهای weekHigh/weekLow بازه تقریبی هفتگی برای محاسبه موقعیت قیمت در روند اخیر است.",
   "prices": [
     {
       "key": "price_dollar_rl",
@@ -11,7 +11,9 @@
       "low": 253460,
       "changeAmount": 1000,
       "changePercent": 0.39,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 259297.34,
+      "weekLow": 249109.34
     },
     {
       "key": "price_eur",
@@ -23,7 +25,9 @@
       "low": 287830,
       "changeAmount": 1800,
       "changePercent": 0.63,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 294174.71,
+      "weekLow": 282602.71
     },
     {
       "key": "price_gbp",
@@ -35,7 +39,9 @@
       "low": 336060,
       "changeAmount": 3230,
       "changePercent": 0.96,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 343462.46,
+      "weekLow": 329929.66
     },
     {
       "key": "price_aed",
@@ -47,7 +53,9 @@
       "low": 68820,
       "changeAmount": 210,
       "changePercent": 0.3,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 70632.98,
+      "weekLow": 67858.98
     },
     {
       "key": "price_try",
@@ -59,7 +67,9 @@
       "low": 5240,
       "changeAmount": -7,
       "changePercent": -0.12,
-      "direction": "down"
+      "direction": "down",
+      "weekHigh": 5368.36,
+      "weekLow": 5157.96
     },
     {
       "key": "geram18",
@@ -71,7 +81,9 @@
       "low": 24854100,
       "changeAmount": -120000,
       "changePercent": -0.48,
-      "direction": "down"
+      "direction": "down",
+      "weekHigh": 25911278.44,
+      "weekLow": 24405392.44
     },
     {
       "key": "geram24",
@@ -83,7 +95,9 @@
       "low": 33100000,
       "changeAmount": -95000,
       "changePercent": -0.28,
-      "direction": "down"
+      "direction": "down",
+      "weekHigh": 34514872.74,
+      "weekLow": 32507026.74
     },
     {
       "key": "mesghal",
@@ -95,7 +109,9 @@
       "low": 107650000,
       "changeAmount": -520000,
       "changePercent": -0.48,
-      "direction": "down"
+      "direction": "down",
+      "weekHigh": 112263176,
+      "weekLow": 105738776
     },
     {
       "key": "ons",
@@ -107,7 +123,9 @@
       "low": 3927,
       "changeAmount": 13.4,
       "changePercent": 0.34,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 4067.95,
+      "weekLow": 3830.59
     },
     {
       "key": "sekee",
@@ -119,7 +137,9 @@
       "low": 258980000,
       "changeAmount": 3995000,
       "changePercent": 1.57,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 266036985.75,
+      "weekLow": 247906635.75
     },
     {
       "key": "sekeb",
@@ -131,7 +151,9 @@
       "low": 250100000,
       "changeAmount": 4700000,
       "changePercent": 1.91,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 257593040,
+      "weekLow": 240009040
     },
     {
       "key": "nim",
@@ -143,7 +165,9 @@
       "low": 134400000,
       "changeAmount": 3000000,
       "changePercent": 2.27,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 138602210,
+      "weekLow": 129124210
     },
     {
       "key": "rob",
@@ -155,7 +179,9 @@
       "low": 72000000,
       "changeAmount": 2000000,
       "changePercent": 2.82,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 74525700,
+      "weekLow": 69415700
     },
     {
       "key": "gerami",
@@ -167,7 +193,205 @@
       "low": 41900000,
       "changeAmount": 350000,
       "changePercent": 0.83,
-      "direction": "up"
+      "direction": "up",
+      "weekHigh": 43811125,
+      "weekLow": 40836125
+    },
+    {
+      "key": "crypto_bitcoin",
+      "title": "بیت‌کوین (BTC)",
+      "category": "crypto",
+      "unit": "usd",
+      "price": 61250,
+      "high": 62480,
+      "low": 59200,
+      "changeAmount": -1180,
+      "changePercent": -1.89,
+      "direction": "down",
+      "weekHigh": 65503.81,
+      "weekLow": 58153.81
+    },
+    {
+      "key": "crypto_ethereum",
+      "title": "اتریوم (ETH)",
+      "category": "crypto",
+      "unit": "usd",
+      "price": 2415,
+      "high": 2470,
+      "low": 2340,
+      "changeAmount": 42,
+      "changePercent": 1.77,
+      "direction": "up",
+      "weekHigh": 2538.53,
+      "weekLow": 2248.73
+    },
+    {
+      "key": "crypto_bnb",
+      "title": "بایننس کوین (BNB)",
+      "category": "crypto",
+      "unit": "usd",
+      "price": 556,
+      "high": 571,
+      "low": 538,
+      "changeAmount": 9.6,
+      "changePercent": 1.76,
+      "direction": "up",
+      "weekHigh": 584.47,
+      "weekLow": 517.75
+    },
+    {
+      "key": "crypto_ripple",
+      "title": "ریپل (XRP)",
+      "category": "crypto",
+      "unit": "usd",
+      "price": 0.612,
+      "high": 0.634,
+      "low": 0.588,
+      "changeAmount": -0.014,
+      "changePercent": -2.24,
+      "direction": "down",
+      "weekHigh": 0.66,
+      "weekLow": 0.58
+    },
+    {
+      "key": "crypto_tether",
+      "title": "تتر (USDT)",
+      "category": "crypto",
+      "unit": "toman",
+      "price": 254850,
+      "high": 255050,
+      "low": 254650,
+      "changeAmount": 90,
+      "changePercent": 0.04,
+      "direction": "flat",
+      "weekHigh": 255563.58,
+      "weekLow": 254034.48
+    },
+    {
+      "key": "stock_tedpix",
+      "title": "شاخص کل بورس تهران",
+      "category": "stock",
+      "unit": "point",
+      "price": 2854600,
+      "high": 2871200,
+      "low": 2831900,
+      "changeAmount": 12400,
+      "changePercent": 0.44,
+      "direction": "up",
+      "weekHigh": 2976776.88,
+      "weekLow": 2719862.88
+    },
+    {
+      "key": "stock_hamvazn",
+      "title": "شاخص هم‌وزن",
+      "category": "stock",
+      "unit": "point",
+      "price": 968400,
+      "high": 974100,
+      "low": 958700,
+      "changeAmount": -3600,
+      "changePercent": -0.37,
+      "direction": "down",
+      "weekHigh": 1013769.54,
+      "weekLow": 926613.54
+    },
+    {
+      "key": "stock_foolad",
+      "title": "فولاد مبارکه اصفهان (فولاد)",
+      "category": "stock",
+      "unit": "toman",
+      "price": 1862,
+      "high": 1895,
+      "low": 1830,
+      "changeAmount": 24,
+      "changePercent": 1.31,
+      "direction": "up",
+      "weekHigh": 1933.59,
+      "weekLow": 1766.01
+    },
+    {
+      "key": "stock_fameli",
+      "title": "ملی صنایع مس ایران (فملی)",
+      "category": "stock",
+      "unit": "toman",
+      "price": 4218,
+      "high": 4290,
+      "low": 4150,
+      "changeAmount": -38,
+      "changePercent": -0.89,
+      "direction": "down",
+      "weekHigh": 4426.58,
+      "weekLow": 4046.96
+    },
+    {
+      "key": "stock_shepna",
+      "title": "پالایش نفت اصفهان (شپنا)",
+      "category": "stock",
+      "unit": "toman",
+      "price": 3105,
+      "high": 3160,
+      "low": 3060,
+      "changeAmount": 19,
+      "changePercent": 0.62,
+      "direction": "up",
+      "weekHigh": 3235.1,
+      "weekLow": 2955.65
+    },
+    {
+      "key": "commodity_brent",
+      "title": "نفت برنت",
+      "category": "commodity",
+      "unit": "usd",
+      "price": 82.4,
+      "high": 83.6,
+      "low": 80.9,
+      "changeAmount": -0.7,
+      "changePercent": -0.84,
+      "direction": "down",
+      "weekHigh": 86.87,
+      "weekLow": 78.63
+    },
+    {
+      "key": "commodity_wti",
+      "title": "نفت وست تگزاس (WTI)",
+      "category": "commodity",
+      "unit": "usd",
+      "price": 78.15,
+      "high": 79.3,
+      "low": 76.8,
+      "changeAmount": -0.55,
+      "changePercent": -0.7,
+      "direction": "down",
+      "weekHigh": 82.33,
+      "weekLow": 74.52
+    },
+    {
+      "key": "commodity_gas",
+      "title": "گاز طبیعی (Henry Hub)",
+      "category": "commodity",
+      "unit": "usd",
+      "price": 2.86,
+      "high": 2.95,
+      "low": 2.74,
+      "changeAmount": 0.05,
+      "changePercent": 1.78,
+      "direction": "up",
+      "weekHigh": 2.98,
+      "weekLow": 2.69
+    },
+    {
+      "key": "commodity_copper",
+      "title": "مس جهانی (LME)",
+      "category": "commodity",
+      "unit": "usd",
+      "price": 9142,
+      "high": 9210,
+      "low": 9010,
+      "changeAmount": 61,
+      "changePercent": 0.67,
+      "direction": "up",
+      "weekHigh": 9568.47,
+      "weekLow": 8654.27
     }
   ]
 }

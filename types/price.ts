@@ -4,11 +4,23 @@
  * آینده جایگزینی منبع داده یا افزودن دیتابیس ساده باشد.
  */
 
-export type MarketCategory = "currency" | "gold" | "coin" | "crypto";
+export type MarketCategory =
+  | "currency"
+  | "gold"
+  | "coin"
+  | "crypto"
+  | "stock"
+  | "commodity";
 
 export type PriceDirection = "up" | "down" | "flat";
 
 export type SignalAction = "buy" | "sell" | "hold";
+
+/** سطح ریسک/نوسان تخمینی نماد بر اساس پهنای بازه هفتگی نسبت به قیمت */
+export type RiskLevel = "low" | "medium" | "high";
+
+/** افق زمانی پیشنهادی برای پیگیری سیگنال */
+export type SignalHorizon = "short" | "mid";
 
 export interface MarketPrice {
   /** شناسه یکتا و پایدار، برگرفته از کلید منبع داده (مثلاً price_dollar_rl) */
@@ -17,14 +29,18 @@ export interface MarketPrice {
   title: string;
   /** دسته‌بندی بازار */
   category: MarketCategory;
-  /** واحد نمایش قیمت (تومان به‌صورت پیش‌فرض) */
-  unit: "toman" | "usd";
+  /** واحد نمایش قیمت */
+  unit: "toman" | "usd" | "point";
   /** قیمت لحظه‌ای */
   price: number;
-  /** بیشترین قیمت در بازه اخیر */
+  /** بیشترین قیمت روزانه */
   high: number;
-  /** کمترین قیمت در بازه اخیر */
+  /** کمترین قیمت روزانه */
   low: number;
+  /** بیشترین قیمت در بازه هفتگی اخیر (برای تحلیل روند) */
+  weekHigh: number;
+  /** کمترین قیمت در بازه هفتگی اخیر (برای تحلیل روند) */
+  weekLow: number;
   /** مقدار تغییر نسبت به قیمت پایه */
   changeAmount: number;
   /** درصد تغییر */
@@ -44,6 +60,14 @@ export interface MarketSignal {
   reason: string;
   /** میزان اطمینان از ۰ تا ۱۰۰ (صرفاً شاخصی نمایشی بر پایه قواعد ساده) */
   confidence: number;
+  /** سطح ریسک/نوسان تخمینی */
+  riskLevel: RiskLevel;
+  /** افق زمانی پیشنهادی برای پیگیری این سیگنال */
+  horizon: SignalHorizon;
+  /** موقعیت قیمت فعلی در بازه هفتگی، از ۰ (کف هفته) تا ۱۰۰ (سقف هفته) */
+  rangePositionPercent: number;
+  /** درصد نوسان هفتگی (پهنای بازه هفتگی نسبت به قیمت) */
+  volatilityPercent: number;
   price: MarketPrice;
 }
 

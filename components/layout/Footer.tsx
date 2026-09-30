@@ -5,6 +5,7 @@ import { SITE_NAME } from "@/lib/constants";
 const FOOTER_LINKS = [
   { href: "/prices", label: "قیمت‌های لحظه‌ای" },
   { href: "/signals", label: "سیگنال بازار" },
+  { href: "/analysis", label: "تحلیل بازار" },
   { href: "/about", label: "درباره ما" },
   { href: "/contact", label: "تماس با ما" },
 ];
@@ -18,14 +19,14 @@ export function Footer() {
         <div className="flex flex-col justify-between gap-6 sm:flex-row">
           <div className="max-w-sm">
             <div className="mb-3 flex items-center gap-2">
-              <span className="flex size-8 items-center justify-center rounded-lg bg-brand-500 text-sm font-bold text-ink-950">
+              <span className="flex size-8 items-center justify-center rounded-lg bg-brand-500 text-sm font-bold text-onbrand">
                 م
               </span>
               <span className="font-bold text-ink-50">{SITE_NAME}</span>
             </div>
             <p className="text-sm leading-6 text-ink-400">
-              مرشد بازاری، قیمت لحظه‌ای ارز، طلا و سکه را از منابع معتبر بازار ایران رصد می‌کند و
-              تحلیلی ساده برای تصمیم‌گیری اقتصادی روزمره ارائه می‌دهد.
+              مرشد بازاری، قیمت لحظه‌ای ارز، طلا، سکه، رمزارز، بورس و کالا را رصد می‌کند و
+              تحلیلی ترکیبی و قابل‌فهم برای تصمیم‌گیری اقتصادی روزمره ارائه می‌دهد.
             </p>
           </div>
 

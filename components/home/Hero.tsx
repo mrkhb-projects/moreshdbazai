@@ -10,7 +10,7 @@ export function Hero() {
       />
       <Container className="relative flex flex-col items-center gap-6 py-16 text-center sm:py-24">
         <span className="rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-xs font-medium text-brand-300">
-          داده لحظه‌ای از بازار ارز، طلا و سکه ایران
+          داده و تحلیل بازار ارز، طلا، سکه، رمزارز، بورس و کالا
         </span>
 
         <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.4] text-ink-50 sm:text-5xl sm:leading-[1.3]">
@@ -19,14 +19,15 @@ export function Hero() {
         </h1>
 
         <p className="max-w-xl text-sm leading-7 text-ink-400 sm:text-base">
-          قیمت دلار، یورو، طلا و سکه را لحظه‌به‌لحظه رصد کنید و با یک نگاه ساده بفهمید بازار در
-          چه وضعیتی است؛ بدون نیاز به تخصص مالی.
+          قیمت دلار، طلا، سکه، رمزارز، شاخص بورس و کالاهای اساسی را لحظه‌به‌لحظه رصد کنید و با
+          تحلیل ترکیبی روند روزانه، بازه هفتگی و نوسان، بفهمید بازار در چه وضعیتی است؛ بدون نیاز
+          به تخصص مالی.
         </p>
 
         <div className="flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/prices">مشاهده قیمت‌های لحظه‌ای</ButtonLink>
-          <ButtonLink href="/signals" variant="secondary">
-            مشاهده سیگنال بازار
+          <ButtonLink href="/analysis" variant="secondary">
+            مشاهده تحلیل بازار
           </ButtonLink>
         </div>
       </Container>
