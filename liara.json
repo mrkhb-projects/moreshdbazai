@@ -1,0 +1,8 @@
+{
+  "platform": "next",
+  "app": "moreshd-bazari",
+  "port": 3000,
+  "next": {
+    "timezone": "Asia/Tehran"
+  }
+}

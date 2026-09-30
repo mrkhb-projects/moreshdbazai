@@ -1,0 +1,48 @@
+// =============================================================================
+// اسکیمای Prisma — فقط اسکلت آماده برای توسعه‌های آینده
+// =============================================================================
+// نسخه فعلی «مرشد بازاری» از داده نمونه استفاده می‌کند و به دیتابیس نیاز
+// ندارد؛ بنابراین @prisma/client و prisma در package.json نصب نشده‌اند تا
+// وابستگی اضافی به پروژه اضافه نشود (طبق الزامات پروژه).
+//
+// وقتی خواستید PostgreSQL را (مثلاً روی Liara) متصل کنید:
+//   ۱. اجرا کنید: npm install prisma @prisma/client
+//   ۲. مقدار DATABASE_URL را در Environment Variables تنظیم کنید.
+//   ۳. اجرا کنید: npx prisma migrate dev --name init
+//   ۴. یک lib/prisma.ts بسازید که PrismaClient را singleton صادر کند و از
+//      آن در Route Handlerها (مثلاً به‌جای lib/otp-store.ts) استفاده کنید.
+// جزئیات کامل در README.md بخش «اتصال دیتابیس» آمده است.
+// =============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// کاربرانی که با شماره موبایل ثبت‌نام کرده‌اند
+model User {
+  id        String   @id @default(cuid())
+  phone     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  watchlist WatchlistItem[]
+
+  @@map("users")
+}
+
+/// نمادهای موردعلاقه هر کاربر (برای توسعه آینده: هشدار قیمت، پیگیری شخصی)
+model WatchlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  symbolKey String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, symbolKey])
+  @@map("watchlist_items")
+}

@@ -1,0 +1,65 @@
+/* =============================================================================
+ * فونت اختصاصی «راوی» (Ravi)
+ * =============================================================================
+ * طبق درخواست کارفرما، فونت رسمی پروژه «مرشد بازاری» راوی (نسخه Pro، تولید
+ * فونت‌ایران/Fontiran.com) است. فایل‌های وب‌فونت (فرمت woff2) به‌صورت
+ * self-hosted در مسیر public/fonts/ravi قرار دارند و هیچ درخواستی به CDN یا
+ * سرویس خارجی برای بارگذاری فونت ارسال نمی‌شود.
+ *
+ * ⚠️ نکتهٔ مجوز (License): راوی یک فونت «تجاری/مالکیتی» (Commercial /
+ * Proprietary) است، نه متن‌باز. فایل‌های وب‌فونت که در همین محیط توسعه/دمو
+ * استفاده شده‌اند از طریق Google Drive شخصی کارفرما تهیه شده‌اند. از آنجا که
+ * مخزن گیت‌هاب این پروژه Public است، فایل‌های باینری فونت (woff2) به‌صورت
+ * پیش‌فرض در .gitignore قرار گرفته‌اند و به مخزن عمومی commit نمی‌شوند تا از
+ * نقض احتمالی مجوز فونت جلوگیری شود. برای اجرای پروژه به‌صورت محلی یا دیپلوی
+ * روی Liara، باید فایل‌های زیر را (پس از تهیهٔ لایسنس معتبر از fontiran.com)
+ * در مسیر public/fonts/ravi/ قرار دهید:
+ *        public/fonts/ravi/Ravi-Regular.woff2    (وزن ۴۰۰)
+ *        public/fonts/ravi/Ravi-Medium.woff2     (وزن ۵۰۰)
+ *        public/fonts/ravi/Ravi-SemiBold.woff2   (وزن ۶۰۰)
+ *        public/fonts/ravi/Ravi-Bold.woff2       (وزن ۷۰۰)
+ *        public/fonts/ravi/Ravi-Black.woff2      (وزن ۹۰۰)
+ * اگر این فایل‌ها موجود نباشند، مرورگر به‌صورت خودکار به فونت‌های سیستمی در
+ * زنجیرهٔ --font-sans (سیستمی/sans-serif) سقوط می‌کند و ظاهر سایت خراب
+ * نمی‌شود، فقط تایپوگرافی اختصاصی راوی نمایش داده نخواهد شد.
+ * ========================================================================= */
+
+@font-face {
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-Black.woff2") format("woff2");
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
