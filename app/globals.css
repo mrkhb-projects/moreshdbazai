@@ -2,7 +2,7 @@
 @import "../styles/fonts.css";
 
 @theme {
-  --font-sans: "Bavan", "Vazirmatn", system-ui, sans-serif;
+  --font-sans: "Ravi", system-ui, "Segoe UI", Tahoma, sans-serif;
 
   --color-brand-50: #eefcf6;
   --color-brand-100: #d5f7e7;

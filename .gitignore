@@ -47,6 +47,24 @@ next-env.d.ts
 # liara
 .liara
 
+# فونت تجاری/مالکیتی «راوی» (Ravi) — Commercial/Proprietary (fontiran.com)
+# این مخزن Public است، پس فایل‌های باینری فونت را کامیت نمی‌کنیم تا مجوز
+# فونت نقض نشود. فایل‌ها فقط به‌صورت محلی برای اجرای دمو نگه داشته می‌شوند.
+# برای دیپلوی روی Liara، فایل‌های زیر را با لایسنس معتبر از fontiran.com
+# تهیه و در همین مسیر قرار دهید (جزئیات کامل در styles/fonts.css و README):
+#   public/fonts/ravi/Ravi-Regular.woff2
+#   public/fonts/ravi/Ravi-Medium.woff2
+#   public/fonts/ravi/Ravi-SemiBold.woff2
+#   public/fonts/ravi/Ravi-Bold.woff2
+#   public/fonts/ravi/Ravi-Black.woff2
+/public/fonts/ravi/*.woff2
+/public/fonts/ravi/*.woff
+/public/fonts/ravi/*.ttf
+/public/fonts/ravi/*.otf
+
+# فایل‌های موقت دانلود‌شده توسط ابزار Google Drive این محیط (نباید در گیت باشند)
+/google_drive/
+
 # این فایل به‌صورت محلی برای پیش‌نمایش نگه داشته شده اما از مسیر
 # .github/workflow-templates/deploy.yml.txt کپی و توسط GitHub App این محیط
 # قابل Push نیست (نیاز به دسترسی «workflows» دارد که این App ندارد).

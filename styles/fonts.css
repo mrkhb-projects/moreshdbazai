@@ -1,88 +1,65 @@
 /* =============================================================================
- * فونت اختصاصی «باوان» (Bavan)
+ * فونت اختصاصی «راوی» (Ravi)
  * =============================================================================
- * طبق درخواست کارفرما، فونت رسمی پروژه «مرشد بازاری» باوان است. از آنجا که
- * فایل فونت باوان در یک Google Drive شخصی قرار دارد و در محیط ساخت این
- * پروژه قابل دانلود مستقیم نبود، فعلاً به‌صورت موقت از فونت آزاد و متن‌باز
- * «وزیرمتن» (Vazirmatn — مجوز SIL OFL 1.1، فایل مجوز در همین پوشه کنار
- * فونت‌ها قرار دارد) با همان نام خانوادهٔ فونت «Bavan» استفاده می‌شود تا
- * ظاهر و ریتم تایپوگرافی فارسی از همین امروز صحیح باشد.
+ * طبق درخواست کارفرما، فونت رسمی پروژه «مرشد بازاری» راوی (نسخه Pro، تولید
+ * فونت‌ایران/Fontiran.com) است. فایل‌های وب‌فونت (فرمت woff2) به‌صورت
+ * self-hosted در مسیر public/fonts/ravi قرار دارند و هیچ درخواستی به CDN یا
+ * سرویس خارجی برای بارگذاری فونت ارسال نمی‌شود.
  *
- * برای فعال‌سازی فونت واقعی باوان (بدون نیاز به تغییر کد در جای دیگر):
- *   ۱. فایل‌های وب‌فونت باوان (فرمت woff2) را در مسیر زیر قرار دهید:
- *        public/fonts/bavan/Bavan-Regular.woff2
- *        public/fonts/bavan/Bavan-Medium.woff2
- *        public/fonts/bavan/Bavan-SemiBold.woff2
- *        public/fonts/bavan/Bavan-Bold.woff2
- *   ۲. بلاک «فونت باوان (نسخه نهایی)» در پایین این فایل را از حالت کامنت
- *      خارج کنید و بلاک «جایگزین موقت» را حذف یا کامنت کنید.
- * از آنجا که family-name همیشه 'Bavan' است، هیچ کامپوننت یا کلاس Tailwind
- * دیگری نیاز به تغییر ندارد.
+ * ⚠️ نکتهٔ مجوز (License): راوی یک فونت «تجاری/مالکیتی» (Commercial /
+ * Proprietary) است، نه متن‌باز. فایل‌های وب‌فونت که در همین محیط توسعه/دمو
+ * استفاده شده‌اند از طریق Google Drive شخصی کارفرما تهیه شده‌اند. از آنجا که
+ * مخزن گیت‌هاب این پروژه Public است، فایل‌های باینری فونت (woff2) به‌صورت
+ * پیش‌فرض در .gitignore قرار گرفته‌اند و به مخزن عمومی commit نمی‌شوند تا از
+ * نقض احتمالی مجوز فونت جلوگیری شود. برای اجرای پروژه به‌صورت محلی یا دیپلوی
+ * روی Liara، باید فایل‌های زیر را (پس از تهیهٔ لایسنس معتبر از fontiran.com)
+ * در مسیر public/fonts/ravi/ قرار دهید:
+ *        public/fonts/ravi/Ravi-Regular.woff2    (وزن ۴۰۰)
+ *        public/fonts/ravi/Ravi-Medium.woff2     (وزن ۵۰۰)
+ *        public/fonts/ravi/Ravi-SemiBold.woff2   (وزن ۶۰۰)
+ *        public/fonts/ravi/Ravi-Bold.woff2       (وزن ۷۰۰)
+ *        public/fonts/ravi/Ravi-Black.woff2      (وزن ۹۰۰)
+ * اگر این فایل‌ها موجود نباشند، مرورگر به‌صورت خودکار به فونت‌های سیستمی در
+ * زنجیرهٔ --font-sans (سیستمی/sans-serif) سقوط می‌کند و ظاهر سایت خراب
+ * نمی‌شود، فقط تایپوگرافی اختصاصی راوی نمایش داده نخواهد شد.
  * ========================================================================= */
 
-/* ---- جایگزین موقت (وزیرمتن) ---- */
 @font-face {
-  font-family: "Bavan";
-  src: url("/fonts/vazirmatn/Vazirmatn-Regular.woff2") format("woff2");
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Bavan";
-  src: url("/fonts/vazirmatn/Vazirmatn-Medium.woff2") format("woff2");
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Bavan";
-  src: url("/fonts/vazirmatn/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Bavan";
-  src: url("/fonts/vazirmatn/Vazirmatn-Bold.woff2") format("woff2");
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* ---- فونت باوان (نسخهٔ نهایی) ----
 @font-face {
-  font-family: "Bavan";
-  src: url("/fonts/bavan/Bavan-Regular.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Ravi";
+  src: url("/fonts/ravi/Ravi-Black.woff2") format("woff2");
+  font-weight: 800 900;
   font-style: normal;
   font-display: swap;
 }
-
-@font-face {
-  font-family: "Bavan";
-  src: url("/fonts/bavan/Bavan-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bavan";
-  src: url("/fonts/bavan/Bavan-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bavan";
-  src: url("/fonts/bavan/Bavan-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-*/
