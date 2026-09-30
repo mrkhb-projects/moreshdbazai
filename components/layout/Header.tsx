@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/prices", label: "قیمت‌های لحظه‌ای" },
   { href: "/signals", label: "سیگنال بازار" },
   { href: "/analysis", label: "تحلیل بازار" },
+  { href: "/favorites", label: "موردعلاقه‌ها" },
   { href: "/about", label: "درباره ما" },
   { href: "/contact", label: "تماس با ما" },
 ];

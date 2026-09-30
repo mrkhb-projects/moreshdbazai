@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PriceChangeTag } from "@/components/prices/PriceChangeTag";
 import { SignalBadge } from "@/components/prices/SignalBadge";
+import { WatchlistButton } from "@/components/prices/WatchlistButton";
 import { formatPriceValue, formatRangeNumber, formatTimeFa } from "@/lib/format";
 import { buildSignal } from "@/lib/signals";
 import { CATEGORY_LABELS } from "@/lib/constants";
@@ -17,8 +19,14 @@ const FILTERS: Array<{ id: MarketCategory | "all"; label: string }> = [
   })),
 ];
 
-export function PriceTable({ prices }: { prices: MarketPrice[] }) {
-  const [category, setCategory] = useState<MarketCategory | "all">("all");
+function isMarketCategory(value: string | undefined): value is MarketCategory {
+  return !!value && value in CATEGORY_LABELS;
+}
+
+export function PriceTable({ prices, initialCategory }: { prices: MarketPrice[]; initialCategory?: string }) {
+  const [category, setCategory] = useState<MarketCategory | "all">(
+    isMarketCategory(initialCategory) ? initialCategory : "all",
+  );
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
@@ -66,7 +74,7 @@ export function PriceTable({ prices }: { prices: MarketPrice[] }) {
         />
       ) : (
         <div className="overflow-x-auto rounded-2xl border border-ink-800">
-          <table className="w-full min-w-[720px] text-sm">
+          <table className="w-full min-w-[760px] text-sm">
             <thead>
               <tr className="border-b border-ink-800 bg-ink-900/60 text-ink-400">
                 <th scope="col" className="px-4 py-3 text-start font-medium">
@@ -90,6 +98,9 @@ export function PriceTable({ prices }: { prices: MarketPrice[] }) {
                 <th scope="col" className="px-4 py-3 text-start font-medium">
                   به‌روزرسانی
                 </th>
+                <th scope="col" className="px-4 py-3 text-start font-medium">
+                  <span className="sr-only">موردعلاقه</span>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -97,7 +108,11 @@ export function PriceTable({ prices }: { prices: MarketPrice[] }) {
                 const signal = buildSignal(price);
                 return (
                   <tr key={price.key} className="border-b border-ink-800/60 last:border-0 hover:bg-ink-900/40">
-                    <td className="px-4 py-3 font-medium text-ink-100">{price.title}</td>
+                    <td className="px-4 py-3 font-medium text-ink-100">
+                      <Link href={`/prices/${price.key}`} className="hover:text-brand-400">
+                        {price.title}
+                      </Link>
+                    </td>
                     <td className="px-4 py-3 text-ink-400">{CATEGORY_LABELS[price.category]}</td>
                     <td className="num-fa px-4 py-3 text-ink-50">{formatPriceValue(price)}</td>
                     <td className="px-4 py-3">
@@ -110,6 +125,9 @@ export function PriceTable({ prices }: { prices: MarketPrice[] }) {
                       <SignalBadge action={signal.action} />
                     </td>
                     <td className="num-fa px-4 py-3 text-ink-500">{formatTimeFa(price.updatedAt)}</td>
+                    <td className="px-2 py-3">
+                      <WatchlistButton instrumentKey={price.key} />
+                    </td>
                   </tr>
                 );
               })}

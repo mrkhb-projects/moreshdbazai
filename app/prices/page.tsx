@@ -14,7 +14,12 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-export default async function PricesPage() {
+interface PricesPageProps {
+  searchParams: Promise<{ category?: string }>;
+}
+
+export default async function PricesPage({ searchParams }: PricesPageProps) {
+  const { category } = await searchParams;
   const snapshot = await getMarketSnapshot();
 
   return (
@@ -33,7 +38,7 @@ export default async function PricesPage() {
           description="سرویس قیمت موقتاً در دسترس نیست. لطفاً چند لحظه دیگر دوباره تلاش کنید."
         />
       ) : (
-        <PriceTable prices={snapshot.prices} />
+        <PriceTable prices={snapshot.prices} initialCategory={category} />
       )}
     </Container>
   );

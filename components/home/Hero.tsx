@@ -1,7 +1,35 @@
+import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { PriceChangeTag } from "@/components/prices/PriceChangeTag";
+import { formatPriceValue } from "@/lib/format";
+import type { MarketPrice } from "@/types/price";
 
-export function Hero() {
+function HeroTicker({ prices }: { prices: MarketPrice[] }) {
+  if (prices.length === 0) return null;
+
+  return (
+    <div
+      dir="ltr"
+      className="flex w-full max-w-3xl gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+    >
+      {prices.map((price) => (
+        <Link
+          key={price.key}
+          href={`/prices/${price.key}`}
+          dir="rtl"
+          className="flex shrink-0 items-center gap-2 rounded-full border border-ink-800 bg-ink-900/70 px-4 py-2 text-xs transition-colors hover:border-brand-500/40"
+        >
+          <span className="font-medium text-ink-200">{price.title}</span>
+          <span className="num-fa font-semibold text-ink-50">{formatPriceValue(price)}</span>
+          <PriceChangeTag direction={price.direction} changePercent={price.changePercent} />
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+export function Hero({ tickerPrices = [] }: { tickerPrices?: MarketPrice[] }) {
   return (
     <section className="relative overflow-hidden border-b border-ink-800 bg-gradient-to-b from-ink-900 to-ink-950">
       <div
@@ -30,6 +58,8 @@ export function Hero() {
             مشاهده تحلیل بازار
           </ButtonLink>
         </div>
+
+        <HeroTicker prices={tickerPrices} />
       </Container>
     </section>
   );

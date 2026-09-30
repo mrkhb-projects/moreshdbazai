@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { SignalBadge } from "@/components/prices/SignalBadge";
 import { PriceChangeTag } from "@/components/prices/PriceChangeTag";
+import { WatchlistButton } from "@/components/prices/WatchlistButton";
 import { formatNumberFa, formatPriceValue } from "@/lib/format";
 import { HORIZON_LABEL, RISK_LEVEL_LABEL } from "@/lib/signals";
 import type { MarketSignal } from "@/types/price";
@@ -18,11 +20,14 @@ export function SignalCard({ signal }: { signal: MarketSignal }) {
   return (
     <Card className="flex flex-col gap-4">
       <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="text-base font-semibold text-ink-50">{signal.title}</h3>
+        <Link href={`/prices/${price.key}`} className="group min-w-0">
+          <h3 className="truncate text-base font-semibold text-ink-50 group-hover:text-brand-400">{signal.title}</h3>
           <p className="num-fa mt-1 text-lg font-bold text-ink-100">{formatPriceValue(price)}</p>
+        </Link>
+        <div className="flex shrink-0 items-center gap-1">
+          <SignalBadge action={signal.action} />
+          <WatchlistButton instrumentKey={price.key} />
         </div>
-        <SignalBadge action={signal.action} />
       </div>
 
       <p className="text-sm leading-6 text-ink-400">{signal.reason}</p>
